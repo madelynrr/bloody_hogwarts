@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "a user can visit a student show page" do
   it "sees a list of the student's courses" do
-    daad = Course.new(name: "Defense Against the Dark Arts")
-    transfig = Course.new(name: "Transfiguration")
-    herbology = Course.new(name: "Herbology")
-    astronomy = Course.new(name: "Astronomy")
-    potions = Course.new(name: "Potions")
-    muggles = Course.new(name: "Muggle Studies")
+    daad = Course.create(name: "Defense Against the Dark Arts")
+    transfig = Course.create(name: "Transfiguration")
+    herbology = Course.create(name: "Herbology")
+    astronomy = Course.create(name: "Astronomy")
+    potions = Course.create(name: "Potions")
+    muggles = Course.create(name: "Muggle Studies")
 
     student_1 = Student.create(name: "Hermione Granger", age: 13, house: "Gryffindor")
     daad.students << student_1
@@ -18,11 +18,11 @@ RSpec.describe "a user can visit a student show page" do
     muggles.students << student_1
 
     student_2 = Student.create(name: "Harry Potter", age: 13, house: "Gryffindor")
-    daad.students << student_1
-    transfig.students << student_1
-    herbology.students << student_1
-    astronomy.students << student_1
-    potions.students << student_1
+    daad.students << student_2
+    transfig.students << student_2
+    herbology.students << student_2
+    astronomy.students << student_2
+    potions.students << student_2
 
     visit "/students/#{student_1.id}"
     expect(page).to have_content(daad.name)
