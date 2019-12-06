@@ -9,11 +9,11 @@ RSpec.describe "a user can visit course index page" do
     student_2 = Student.create(name: "Harry Potter", age: 13, house: "Gryffindor")
     student_3 = Student.create(name: "Ron Weasley", age: 11, house: "Gryffindor")
 
-    daad << student_1
-    daad << student_2
-    daad << student_3
+    daad.students << student_1
+    daad.students << student_2
+    daad.students << student_3
 
-    muggles << student_1
+    muggles.students << student_1
 
     visit '/courses'
 
